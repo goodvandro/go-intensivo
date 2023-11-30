@@ -16,6 +16,8 @@ func main() {
 		panic(err)
 	}
 
+	defer db.Close() // wait all processes to execute than close the database
+
 	orderRepository := database.NewOrderRepository(db)
 
 	uc := usecase.NewCalculateFinalPrice(orderRepository)

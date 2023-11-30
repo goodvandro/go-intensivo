@@ -9,3 +9,4 @@
 9. Para trabalhar com testes em go deve sempre começar com a palavra "Test"
 10. go test ./... -> roda os testes
 11. go mod tidy -> Baixa os pacotes externos não instalados
+12. go build -> Gera o binário para colocar em produção.
