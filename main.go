@@ -6,7 +6,7 @@ import (
 
 	"github.com/goodvandro/go-intensivo/internal/infra/database"
 	usecase "github.com/goodvandro/go-intensivo/internal/useCase"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/mattn/go-sqlite3" // the underline is because the package is not used directly but when it is necessary
 )
 
 func main() {
