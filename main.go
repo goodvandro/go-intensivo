@@ -16,13 +16,21 @@ func processando() {
 func main() {
 	canal := make(chan int) // make a chanel
 
-	// set data into the chanel
 	go func() {
-		canal <- 1 // T2
+		for i := 0; i < 10; i++ {
+			canal <- i // set data into the chanel
+			fmt.Println("Jogou no canal", i)
+		}
 	}()
 
-	// remove data from the chanel
-	fmt.Println(<-canal)
+	go worker(canal, 1)
+	worker(canal, 2)
 
-	time.Sleep(time.Second * 2)
+}
+
+func worker(canal chan int, workerID int) {
+	for {
+		fmt.Println("Recebeu do canal", <-canal, "no worker", workerID)
+		time.Sleep(time.Second)
+	}
 }
