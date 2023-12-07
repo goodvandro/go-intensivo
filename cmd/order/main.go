@@ -43,6 +43,7 @@ func rabbitmqWorker(msgChan chan amqp.Delivery, uc *usecase.CalculateFinalPrice)
 
 	for msg := range msgChan {
 		var input usecase.OrderInput
+
 		err := json.Unmarshal(msg.Body, &input)
 
 		if err != nil {
@@ -57,6 +58,6 @@ func rabbitmqWorker(msgChan chan amqp.Delivery, uc *usecase.CalculateFinalPrice)
 
 		msg.Ack(false)
 
-		fmt.Println("Mensagem processada e salva no banco", output)
+		fmt.Println("Message get from rabitmq and save into database", output)
 	}
 }
