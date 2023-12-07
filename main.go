@@ -12,8 +12,17 @@ func processando() {
 	}
 }
 
+// T1
 func main() {
-	go processando()
-	go processando()
-	processando()
+	canal := make(chan int) // make a chanel
+
+	// set data into the chanel
+	go func() {
+		canal <- 1 // T2
+	}()
+
+	// remove data from the chanel
+	fmt.Println(<-canal)
+
+	time.Sleep(time.Second * 2)
 }
