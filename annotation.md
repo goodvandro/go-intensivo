@@ -10,3 +10,8 @@
 10. go test ./... -> roda os testes
 11. go mod tidy -> Baixa os pacotes externos não instalados
 12. go build -> Gera o binário para colocar em produção.
+13. docker build -t goodvandro/go-intensivo:latest . -> build docker image
+14. run -p 8888:8888 goodvandro/go-intensivo:latest -> create and run the container
+15. docker push goodvandro/go-intensivo:latest -> push container to docker hub
+
+
